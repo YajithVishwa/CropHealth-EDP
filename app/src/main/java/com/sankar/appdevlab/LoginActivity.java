@@ -26,6 +26,8 @@ public class LoginActivity extends AppCompatActivity {
         user=findViewById(R.id.user_name);
         password=findViewById(R.id.user_password);
         login=findViewById(R.id.login);
+        user.setText("yajith@student.tce.edu");
+        password.setText("vishwa");
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

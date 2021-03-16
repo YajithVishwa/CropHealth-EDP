@@ -1,5 +1,6 @@
 package com.sankar.appdevlab.ui.water;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ import me.itangqi.waveloadingview.WaveLoadingView;
 
 public class WaterFragment extends Fragment {
     private WaveLoadingView mWaveLoadingView1,mWaveLoadingView2,mWaveLoadingView3,mWaveLoadingView4;
+    private ProgressDialog progressDialog;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_water, container, false);
@@ -28,9 +30,13 @@ public class WaterFragment extends Fragment {
         mWaveLoadingView2 = (WaveLoadingView) root.findViewById(R.id.waveLoadingView1);
         mWaveLoadingView3 = (WaveLoadingView) root.findViewById(R.id.waveLoadingView2);
         mWaveLoadingView4 = (WaveLoadingView) root.findViewById(R.id.waveLoadingView3);
+        progressDialog=new ProgressDialog(getContext());
+        progressDialog.setMessage("Loading..");
+        progressDialog.setCancelable(false);
         Thread thread=new Thread(new Runnable() {
             @Override
             public void run() {
+                progressDialog.show();
                 FirebaseDatabase.getInstance().getReference().child("user").child("yajith").child("water_level").addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -42,6 +48,7 @@ public class WaterFragment extends Fragment {
                         startAnimation(mWaveLoadingView2,level2,String.valueOf(level2));
                         startAnimation(mWaveLoadingView3,level3,String.valueOf(level3));
                         startAnimation(mWaveLoadingView4,level4,String.valueOf(level4));
+                        progressDialog.dismiss();
                     }
 
                     @Override
@@ -75,6 +82,7 @@ public class WaterFragment extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
+        progressDialog.dismiss();
         mWaveLoadingView1.pauseAnimation();
         mWaveLoadingView1.cancelAnimation();
         mWaveLoadingView2.pauseAnimation();
