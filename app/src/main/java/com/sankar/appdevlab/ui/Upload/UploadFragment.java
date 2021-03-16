@@ -34,6 +34,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 import com.sankar.appdevlab.R;
 import com.sankar.appdevlab.Volley.VolleyMultipartRequest;
+import com.sankar.appdevlab.ui.Upload.CropDisplay.CropDisplayActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -92,7 +93,18 @@ public class UploadFragment extends Fragment {
                     }
                 else
                 {
-                    Toast.makeText(getContext(), "Sending text", Toast.LENGTH_SHORT).show();
+
+                    if(name.equals(""))
+                    {
+                        Toast.makeText(getContext(), "Input in null", Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                    {
+                        Toast.makeText(getContext(), "Sending text", Toast.LENGTH_SHORT).show();
+                        Intent intent=new Intent(getContext(), CropDisplayActivity.class);
+                        intent.putExtra("soil",name);
+                        startActivity(intent);
+                    }
                 }
             }
         });
@@ -111,8 +123,10 @@ public class UploadFragment extends Fragment {
                     if(jsonObject.has("soil"))
                     {
                         String sand=jsonObject.getString("soil");
-                        Toast.makeText(getContext(),sand, Toast.LENGTH_SHORT).show();
-
+                        //Toast.makeText(getContext(),sand, Toast.LENGTH_SHORT).show();
+                        Intent intent=new Intent(getContext(), CropDisplayActivity.class);
+                        intent.putExtra("soil",sand);
+                        startActivity(intent);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

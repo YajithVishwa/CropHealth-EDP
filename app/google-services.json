@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "662299079529",
+    "project_id": "crop-e7af7",
+    "storage_bucket": "crop-e7af7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:662299079529:android:521e113dcecfc4a5e583f8",
+        "android_client_info": {
+          "package_name": "com.sankar.appdevlab"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "662299079529-ved5kmd13v1fbjet4ps0uj42agog950j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4ZK4FTNeZIko1LiciVOxjwJA7kfcUw6E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "662299079529-ved5kmd13v1fbjet4ps0uj42agog950j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

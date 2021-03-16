@@ -33,10 +33,10 @@ public class WaterFragment extends Fragment {
         progressDialog=new ProgressDialog(getContext());
         progressDialog.setMessage("Loading..");
         progressDialog.setCancelable(false);
+        progressDialog.show();
         Thread thread=new Thread(new Runnable() {
             @Override
             public void run() {
-                progressDialog.show();
                 FirebaseDatabase.getInstance().getReference().child("user").child("yajith").child("water_level").addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
