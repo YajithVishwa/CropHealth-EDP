@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".ui.water.WaterFragment">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:baselineAligned="false">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/first"
+            android:layout_height="match_parent">
+            <me.itangqi.waveloadingview.WaveLoadingView
+                android:id="@+id/waveLoadingView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                app:wlv_borderColor="#0E0E0E"
+                app:wlv_borderWidth="10dp"
+                app:wlv_progressValue="40"
+                app:wlv_shapeType="rectangle"
+                app:wlv_round_rectangle="true"
+                app:wlv_triangle_direction="north"
+                app:wlv_titleCenterStrokeColor="@android:color/holo_blue_dark"
+                app:wlv_titleCenterStrokeWidth="3dp"
+                app:wlv_titleCenter="1st Field"
+                app:wlv_titleCenterColor="@android:color/white"
+                app:wlv_titleCenterSize="24sp"
+                app:wlv_waveAmplitude="70"
+                app:wlv_waveColor="@color/purple_500"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:id="@+id/second"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+            <me.itangqi.waveloadingview.WaveLoadingView
+                android:id="@+id/waveLoadingView1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+
+                android:layout_margin="10dp"
+                app:wlv_borderColor="#0E0E0E"
+                app:wlv_borderWidth="10dp"
+                app:wlv_progressValue="40"
+                app:wlv_shapeType="rectangle"
+                app:wlv_round_rectangle="true"
+                app:wlv_triangle_direction="north"
+                app:wlv_titleCenterStrokeColor="@android:color/holo_blue_dark"
+                app:wlv_titleCenterStrokeWidth="3dp"
+                app:wlv_titleCenter="2nd Field"
+                app:wlv_titleCenterColor="@android:color/white"
+                app:wlv_titleCenterSize="24sp"
+                app:wlv_waveAmplitude="70"
+                app:wlv_waveColor="@color/purple_500"/>
+        </FrameLayout>
+
+    </LinearLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:baselineAligned="false">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/third"
+            android:layout_height="match_parent"
+            >
+            <me.itangqi.waveloadingview.WaveLoadingView
+                android:id="@+id/waveLoadingView2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                app:wlv_borderColor="#0E0E0E"
+                app:wlv_borderWidth="10dp"
+                app:wlv_progressValue="40"
+
+                android:layout_margin="10dp"
+                app:wlv_shapeType="rectangle"
+                app:wlv_round_rectangle="true"
+                app:wlv_triangle_direction="north"
+                app:wlv_titleCenterStrokeColor="@android:color/holo_blue_dark"
+                app:wlv_titleCenterStrokeWidth="3dp"
+                app:wlv_titleCenter="3r Field"
+                app:wlv_titleCenterColor="@android:color/white"
+                app:wlv_titleCenterSize="24sp"
+                app:wlv_waveAmplitude="70"
+                app:wlv_waveColor="@color/purple_500"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:id="@+id/forth"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            >
+            <me.itangqi.waveloadingview.WaveLoadingView
+                android:id="@+id/waveLoadingView3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                app:wlv_borderColor="#0E0E0E"
+                app:wlv_borderWidth="10dp"
+                app:wlv_progressValue="40"
+                app:wlv_shapeType="rectangle"
+
+                android:layout_margin="10dp"
+                app:wlv_round_rectangle="true"
+                app:wlv_triangle_direction="north"
+                app:wlv_titleCenterStrokeColor="@android:color/holo_blue_dark"
+                app:wlv_titleCenterStrokeWidth="3dp"
+                app:wlv_titleCenter="4th Field"
+                app:wlv_titleCenterColor="@android:color/white"
+                app:wlv_titleCenterSize="24sp"
+                app:wlv_waveAmplitude="70"
+                app:wlv_waveColor="@color/purple_500"/>
+        </FrameLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
