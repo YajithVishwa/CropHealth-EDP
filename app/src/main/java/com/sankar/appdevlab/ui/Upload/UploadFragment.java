@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -51,12 +52,14 @@ public class UploadFragment extends Fragment {
     private ImageView imageView;
     private Button capture,upload;
     private EditText editText;
+    private TextView placeText;
     private Bitmap bitmap=null;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_upload, container, false);
-        imageView=root.findViewById(R.id.image);
+        imageView=(ImageView)root.findViewById(R.id.image);
         capture=root.findViewById(R.id.capture);
+        placeText=(TextView)root.findViewById(R.id.placetext);
         upload=root.findViewById(R.id.upload);
         editText=root.findViewById(R.id.name);
         capture.setOnClickListener(new View.OnClickListener() {
@@ -112,7 +115,7 @@ public class UploadFragment extends Fragment {
     }
 
     private void SendImageToServer(String name,byte[] file) {
-        String url="http://aakashveera.pythonanywhere.com/soil_predict";
+        String url="http://34.70.119.144/soil_predict";
         VolleyMultipartRequest volleyMultipartRequest = new VolleyMultipartRequest(Request.Method.POST, url,new Response.Listener<NetworkResponse>() {
             @Override
             public void onResponse(NetworkResponse response) {
@@ -192,9 +195,14 @@ public class UploadFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 100) {
-            Bitmap photo = (Bitmap) data.getExtras().get("data");
-            imageView.setImageBitmap(photo);
-            this.bitmap=photo;
+            if(data!=null) {
+                if(data.getExtras()!=null) {
+                    Bitmap photo = (Bitmap) data.getExtras().get("data");
+                    placeText.setVisibility(View.GONE);
+                    imageView.setImageBitmap(photo);
+                    this.bitmap = photo;
+                }
+            }
 
 
         }

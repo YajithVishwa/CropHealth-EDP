@@ -108,10 +108,10 @@
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-                <ImageButton
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/ic_baseline_group_24"/>
+                <com.google.android.gms.common.SignInButton
+                    android:id="@+id/sign_in_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
                 <ImageButton
                     android:layout_width="50dp"
                     android:layout_height="50dp"

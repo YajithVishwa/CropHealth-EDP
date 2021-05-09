@@ -1,12 +1,15 @@
 package com.sankar.appdevlab.ui.Upload.CropDisplay;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,6 +29,7 @@ public class CropDisplayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crop_display);
         arrayList=new ArrayList<>();
+
         recyclerView=findViewById(R.id.recycler);
         context=this;
         if(getIntent().getExtras()!=null)
@@ -35,15 +39,15 @@ public class CropDisplayActivity extends AppCompatActivity {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     arrayList.clear();
-                    for(int i=0;i<snapshot.getChildrenCount();i++)
-                    {
-                        arrayList.add(snapshot.child(String.valueOf(i)).getValue(String.class));
-                    }
-                    CustomAdapter customAdapter=new CustomAdapter(context,arrayList);
-                    recyclerView.setHasFixedSize(true);
-                    recyclerView.setLayoutManager(new LinearLayoutManager(context));
-                    recyclerView.setAdapter(customAdapter);
-                    customAdapter.notifyDataSetChanged();
+                        for (int i = 0; i < snapshot.getChildrenCount(); i++) {
+                            arrayList.add(snapshot.child(String.valueOf(i)).getValue(String.class));
+                        }
+                        CustomAdapter customAdapter = new CustomAdapter(context, arrayList);
+                        recyclerView.setHasFixedSize(true);
+                        recyclerView.setLayoutManager(new LinearLayoutManager(context));
+                        recyclerView.setAdapter(customAdapter);
+                        customAdapter.notifyDataSetChanged();
+
 
                 }
 
